@@ -7,3 +7,4 @@ ROLL NO             NAME OF STUDENT             FAVORITE SUBJECT
    101.             Alice                       Science
    102.             Bob                         Mathematics
    103.             Charlie                     Physics
+   104.             Pushpa                      Economics
