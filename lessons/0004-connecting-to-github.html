@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0004: Connecting to GitHub</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+
+<div class="lesson-header">
+  <div class="lesson-number">Lesson 0004</div>
+  <h1>Connecting to GitHub</h1>
+  <div class="lesson-meta">~15 minutes · Mission: Career-ready Git</div>
+</div>
+
+<div class="goal">
+  <strong>Goal:</strong> Push your local repo to GitHub so it's visible online. This is how you showcase your work to employers and collaborate with teams.
+</div>
+
+<h2>The concept: local vs remote</h2>
+
+<p>So far, everything has been on your machine (your <strong>local</strong> repository). GitHub is a <strong>remote</strong> — a copy of your repo hosted on a server. The magic is that you can sync between them: push your changes up, pull others' changes down.</p>
+
+<pre>
+  Your computer (local)           GitHub (remote)
+  ┌──────────────────┐           ┌──────────────────┐
+  │  Working Directory│           │  Main branch     │
+  │  Staging Area     │  push →  │  Other branches  │
+  │  Repository (.git)│           │  Pull Requests   │
+  └──────────────────┘  ← pull   └──────────────────┘
+</pre>
+
+<h2>Step 1: Create a repo on GitHub</h2>
+
+<ol>
+  <li>Go to <a href="https://github.com">https://github.com</a> and log in as <strong>hetpatel-dev</strong></li>
+  <li>Click the <strong>+</strong> icon (top-right) → <strong>New repository</strong></li>
+  <li>Repository name: <strong>versioncontrol</strong> (match your local folder)</li>
+  <li>Description: <em>"Learning Git &amp; GitHub from scratch"</em></li>
+  <li>Keep it <strong>Public</strong> (employers can see it — that's good!)</li>
+  <li>DO NOT check "Initialize with README", ".gitignore", or license (your repo already has content)</li>
+  <li>Click <strong>Create repository</strong></li>
+</ol>
+
+<div class="callout">
+  <strong>Public vs Private</strong>
+  Public repos are visible to everyone — great for your portfolio. Private repos are visible only to you and people you invite. Companies use both.
+</div>
+
+<h2>Step 2: Connect your local repo to GitHub</h2>
+
+<p>GitHub will show you a page with commands. Look for the section that says <strong>"…or push an existing repository from the command line"</strong>. It'll look like:</p>
+
+<pre class="command"><span class="prompt">$</span> git remote add origin https://github.com/hetpatel-dev/versioncontrol.git
+<span class="prompt">$</span> git branch -M main
+<span class="prompt">$</span> git push -u origin main</pre>
+
+<div class="callout tip">
+  <strong>What these commands mean</strong>
+  <ul>
+    <li><code>git remote add origin &lt;url&gt;</code> — tells Git "there's a remote repo at this URL, call it 'origin'"</li>
+    <li><code>git branch -M main</code> — renames current branch to main (already done)</li>
+    <li><code>git push -u origin main</code> — upload commits to GitHub AND set origin/main as the upstream (tracking) branch</li>
+  </ul>
+</div>
+
+<p>Run these commands one by one in your terminal.</p>
+
+<h2>Step 3: Handle authentication</h2>
+
+<p>The first time you push, Git will ask you to authenticate. You have options:</p>
+
+<ul>
+  <li><strong>Browser sign-in</strong> — Git will open a browser window. Log in to GitHub there.</li>
+  <li><strong>Personal Access Token (PAT)</strong> — If browser doesn't work, create a token at GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic). Check "repo" scope, copy the token, paste it as your password.</li>
+</ul>
+
+<div class="callout warn">
+  <strong>Note</strong>
+  GitHub deprecated password authentication in 2021. You must use a token or browser-based authentication. The Git Credential Manager (installed with Git for Windows) handles this automatically.
+</div>
+
+<h2>Step 4: Verify on GitHub</h2>
+
+<p>Refresh your <code>https://github.com/hetpatel-dev/versioncontrol</code> page. You should see:</p>
+
+<ul>
+  <li>All your files and folders</li>
+  <li>All your commit history</li>
+  <li>The branch <code>main</code></li>
+</ul>
+
+<h2>Step 5: Push your other branches</h2>
+
+<p>Your branches only exist locally so far. Push them:</p>
+
+<pre class="command"><span class="prompt">$</span> git push -u origin experiment</pre>
+
+<p>Refresh GitHub — you'll see your <code>experiment</code> branch listed in the branch dropdown.</p>
+
+<h2>What you just learned</h2>
+
+<ul>
+  <li>Remote vs local repositories</li>
+  <li><code>git remote add origin &lt;url&gt;</code> — link to a remote</li>
+  <li><code>git push -u origin &lt;branch&gt;</code> — push and set upstream</li>
+  <li>Your commits are now visible to employers and collaborators</li>
+</ul>
+
+<h2>Practice to build fluency</h2>
+
+<ol>
+  <li>Make a change, commit, and <code>git push</code> (without <code>-u</code> this time — it's already tracking)</li>
+  <li>Go to GitHub, see your latest commit appear</li>
+  <li>Click on a commit on GitHub — see the diff rendered in the browser</li>
+</ol>
+
+<h2>Further reading</h2>
+
+<p>Read <strong>Pro Git</strong> Chapter 2.5 (Working with Remotes):</p>
+
+<p><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes">https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes</a></p>
+
+<h2>Ask questions</h2>
+
+<p>Authentication can be the trickiest part. If you get any errors during push, paste them here and I'll help.</p>
+
+<hr>
+
+<p><a href="../reference/0004-remotes.html">Reference: Remotes Cheat Sheet</a> · <a href="0003-branching-basics.html">Lesson 3</a></p>
+
+</body>
+</html>

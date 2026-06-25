@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Remotes — Quick Reference</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+    th { background: var(--accent-light); font-weight: 600; }
+    code { white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<h1>Git Remotes — Quick Reference</h1>
+
+<h2>What is a remote?</h2>
+
+<p>A remote is another copy of your repo hosted on a server (like GitHub). The default remote is called <code>origin</code>.</p>
+
+<h2>Remote commands</h2>
+
+<table>
+  <thead>
+    <tr><th>Command</th><th>What it does</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>git remote -v</code></td><td>List remotes and their URLs</td></tr>
+    <tr><td><code>git remote add origin &lt;url&gt;</code></td><td>Add a remote named "origin"</td></tr>
+    <tr><td><code>git push origin &lt;branch&gt;</code></td><td>Push branch to remote</td></tr>
+    <tr><td><code>git push -u origin &lt;branch&gt;</code></td><td>Push and set upstream (tracking) — after this, just <code>git push</code></td></tr>
+    <tr><td><code>git push</code></td><td>Push current branch to its upstream</td></tr>
+    <tr><td><code>git pull</code></td><td>Fetch + merge remote changes into current branch</td></tr>
+    <tr><td><code>git fetch</code></td><td>Download remote data without merging</td></tr>
+    <tr><td><code>git clone &lt;url&gt;</code></td><td>Download a remote repo for the first time</td></tr>
+  </tbody>
+</table>
+
+<h2>Before vs after <code>-u</code></h2>
+
+<pre>Before:  git push origin main     (must specify branch every time)
+After:   git push                 (just works, tracked to origin/main)</pre>
+
+<h2>Check tracking</h2>
+
+<p><code>git branch -vv</code> shows which local branches track which remote branches.</p>
+
+<p><a href="../lessons/0004-connecting-to-github.html">Back to Lesson 4</a> · <a href="../lessons/0003-branching-basics.html">Lesson 3</a></p>
+
+</body>
+</html>
