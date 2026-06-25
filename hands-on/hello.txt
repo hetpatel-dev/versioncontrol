@@ -4,5 +4,5 @@ After that I will  be learning Github!!
 It's a good habit to wake up early and do some exercise.
 
 ROLL NO             NAME OF STUDENT             FAVORITE SUBJECT             
-    1.              Alice                       Science
-    2.              Bob                         Mathematics
+   101.             Alice                       Science
+   202.             Bob                         Mathematics
