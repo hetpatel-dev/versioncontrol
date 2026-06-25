@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Branching — Quick Reference</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+    th { background: var(--accent-light); font-weight: 600; }
+    code { white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<h1>Branching — Quick Reference</h1>
+
+<p>A branch is a lightweight pointer to a commit. Creating branches is nearly instant — you're just creating a new label.</p>
+
+<h2>Branch commands</h2>
+
+<table>
+  <thead>
+    <tr><th>Command</th><th>What it does</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>git branch</code></td><td>List local branches. <code>*</code> marks current branch.</td></tr>
+    <tr><td><code>git branch &lt;name&gt;</code></td><td>Create a new branch at current commit</td></tr>
+    <tr><td><code>git branch -d &lt;name&gt;</code></td><td>Delete a merged branch (safe)</td></tr>
+    <tr><td><code>git branch -D &lt;name&gt;</code></td><td>Force delete (even if unmerged) ⚠️</td></tr>
+    <tr><td><code>git branch -a</code></td><td>List all branches (including remote-tracking)</td></tr>
+    <tr><td><code>git switch &lt;name&gt;</code></td><td>Switch to an existing branch</td></tr>
+    <tr><td><code>git switch -c &lt;name&gt;</code></td><td>Create + switch to a new branch</td></tr>
+    <tr><td><code>git merge &lt;branch&gt;</code></td><td>Merge &lt;branch&gt; into current branch</td></tr>
+  </tbody>
+</table>
+
+<h2>How branches look in history</h2>
+
+<p><code>git log --oneline --graph --all</code> is your main tool. Here's what different situations look like:</p>
+
+<pre><strong>Linear (fast-forward merge):</strong>
+* abc1234 (HEAD -> main) Finish feature
+* def5678 Start feature
+* 1234abc (origin/main) Previous commit
+
+<strong>Merge commit (non-fast-forward):</strong>
+*   abc1234 (HEAD -> main) Merge feature into main
+|\
+| * def5678 (feature) Finish feature
+* | 1234abc Bugfix on main
+|/
+* 7890def Base commit</pre>
+
+<h2>Common branch naming patterns</h2>
+
+<table>
+  <thead>
+    <tr><th>Pattern</th><th>Example</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>feature/&lt;name&gt;</code></td><td><code>feature/login-page</code></td></tr>
+    <tr><td><code>bugfix/&lt;name&gt;</code></td><td><code>bugfix/null-pointer</code></td></tr>
+    <tr><td><code>hotfix/&lt;name&gt;</code></td><td><code>hotfix/security-patch</code></td></tr>
+    <tr><td><code>chore/&lt;name&gt;</code></td><td><code>chore/update-deps</code></td></tr>
+  </tbody>
+</table>
+
+<h2>Key insight</h2>
+
+<p><strong>Branches are just labels.</strong> Creating a branch doesn't copy files — it just creates a pointer. That's why branches are cheap and you should use them liberally.</p>
+
+<p><a href="../lessons/0003-branching-basics.html">Back to Lesson 3</a> · <a href="../lessons/0002-seeing-what-changed.html">Lesson 2</a></p>
+
+</body>
+</html>

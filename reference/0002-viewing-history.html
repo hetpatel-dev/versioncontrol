@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viewing History — Quick Reference</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+    th { background: var(--accent-light); font-weight: 600; }
+    code { white-space: nowrap; }
+  </style>
+</head>
+<body>
+
+<h1>Viewing History — Quick Reference</h1>
+
+<h2>git log options</h2>
+
+<table>
+  <thead>
+    <tr><th>Command</th><th>What it shows</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>git log</code></td><td>Full commit history (author, date, message, hash)</td></tr>
+    <tr><td><code>git log --oneline</code></td><td>One line per commit (short hash + message)</td></tr>
+    <tr><td><code>git log --oneline --stat</code></td><td>Files changed per commit (+/- counts)</td></tr>
+    <tr><td><code>git log --oneline --patch</code></td><td>Full diff for every commit</td></tr>
+    <tr><td><code>git log --oneline --graph --all</code></td><td>Visual branch tree</td></tr>
+    <tr><td><code>git log --oneline -3</code></td><td>Last 3 commits only</td></tr>
+    <tr><td><code>git log --author="Name"</code></td><td>Filter by author</td></tr>
+    <tr><td><code>git log --grep="fix"</code></td><td>Search commit messages</td></tr>
+  </tbody>
+</table>
+
+<h2>Inspecting changes</h2>
+
+<table>
+  <thead>
+    <tr><th>Command</th><th>What it shows</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>git diff</code></td><td>Unstaged changes (working directory vs staging)</td></tr>
+    <tr><td><code>git diff --staged</code></td><td>Staged changes (staging vs last commit)</td></tr>
+    <tr><td><code>git diff HEAD</code></td><td>All changes (staged + unstaged) vs last commit</td></tr>
+    <tr><td><code>git diff &lt;hash1&gt; &lt;hash2&gt;</code></td><td>Changes between two specific commits</td></tr>
+    <tr><td><code>git show HEAD</code></td><td>Full details of the latest commit (metadata + diff)</td></tr>
+    <tr><td><code>git show &lt;hash&gt;</code></td><td>Full details of any commit</td></tr>
+  </tbody>
+</table>
+
+<h2>Undoing</h2>
+
+<table>
+  <thead>
+    <tr><th>Command</th><th>What it does</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>git restore &lt;file&gt;</code></td><td>Discard unstaged changes (⚠️ permanent)</td></tr>
+    <tr><td><code>git restore --staged &lt;file&gt;</code></td><td>Unstage a file (keep changes in working directory)</td></tr>
+    <tr><td><code>git commit --amend -m "new msg"</code></td><td>Replace the last commit's message</td></tr>
+  </tbody>
+</table>
+
+<h2>Key: what HEAD means</h2>
+
+<p><code>HEAD</code> is Git's way of saying "where you are right now." Usually it points to the latest commit on your current branch.</p>
+
+<p><a href="../lessons/0002-seeing-what-changed.html">Back to Lesson 2</a> · <a href="../lessons/0001-your-first-git-commit.html">Lesson 1</a></p>
+
+</body>
+</html>

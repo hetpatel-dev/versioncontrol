@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0002: Seeing What Changed</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+
+<div class="lesson-header">
+  <div class="lesson-number">Lesson 0002</div>
+  <h1>Seeing What Changed</h1>
+  <div class="lesson-meta">~10 minutes · Mission: Career-ready Git</div>
+</div>
+
+<div class="goal">
+  <strong>Goal:</strong> Learn to inspect changes before and after committing. These read-only commands are how you'll review work every single day on the job.
+</div>
+
+<h2>The problem</h2>
+
+<p>You just made 3 commits. But what actually changed in each one? On a real project, you'll need to check your changes before staging, review what's staged before committing, and look back at old commits to understand when a bug was introduced.</p>
+
+<h2>Step 1: Unstaged changes — <code>git diff</code></h2>
+
+<p>Modify <code>hands-on/hello.txt</code> (add a line or change it), but <strong>don't stage it</strong>. Then run:</p>
+
+<pre class="command"><span class="prompt">$</span> git diff</pre>
+
+<p>You'll see a line-by-line breakdown. Lines starting with <code>+</code> are additions (green). Lines with <code>-</code> are deletions (red). Git shows you the "before" and "after" side by side.</p>
+
+<div class="callout tip">
+  <strong>Readability trick</strong>
+  <code>git diff --word-diff</code> highlights individual words that changed rather than whole lines. Great for prose or long variable names.
+</div>
+
+<h2>Step 2: Staged changes — <code>git diff --staged</code></h2>
+
+<p>Now stage your change:</p>
+
+<pre class="command"><span class="prompt">$</span> git add hands-on/hello.txt</pre>
+
+<p><code>git diff</code> now shows nothing (there are no more unstaged changes). But the changes are staged. See them with:</p>
+
+<pre class="command"><span class="prompt">$</span> git diff --staged</pre>
+
+<p>This is the "preview before you commit." Professionals always review their staged diff before committing.</p>
+
+<h2>Step 3: Look at a commit — <code>git show</code></h2>
+
+<p>Commit and then inspect it:</p>
+
+<pre class="command"><span class="prompt">$</span> git commit -m "Improve hello.txt greeting"
+<span class="prompt">$</span> git show HEAD</pre>
+
+<p><code>git show HEAD</code> shows the most recent commit: the metadata (author, date, message) plus the diff. You can show any commit by its hash:</p>
+
+<pre class="command"><span class="prompt">$</span> git show cc7ddc1</pre>
+
+<p>(Use the actual hashes from your log.)</p>
+
+<h2>Step 4: Richer history — <code>git log</code> options</h2>
+
+<p>You already know <code>git log --oneline</code>. Now add more detail:</p>
+
+<pre class="command"><span class="prompt">$</span> git log --oneline --stat</pre>
+
+<p><code>--stat</code> shows which files changed in each commit and how many insertions/deletions.</p>
+
+<pre class="command"><span class="prompt">$</span> git log --oneline --patch</pre>
+
+<p><code>--patch</code> (or <code>-p</code>) shows the full diff for every commit — the complete story of your project.</p>
+
+<pre class="command"><span class="prompt">$</span> git log --oneline --graph --all</pre>
+
+<p><code>--graph</code> draws a visual tree of branches. <code>--all</code> shows every branch, not just the current one. Right now it'll just be a straight line — that changes once you start branching.</p>
+
+<div class="callout">
+  <strong>Career habit</strong>
+  On a real team, you'll use <code>git diff</code> before every commit and <code>git show</code> to review others' commits during code review. These are daily tools, not advanced features.
+</div>
+
+<h2>Step 5: Bonus — undo safely</h2>
+
+<p>You already discovered <code>git restore --staged</code>. Here are two more safe undo commands:</p>
+
+<pre class="command"><span class="prompt"># Discard unstaged changes to a file (permanent!)
+$</span> git restore hands-on/hello.txt
+
+<span class="prompt"># Fix the last commit message without changing its content
+$</span> git commit --amend -m "Better commit message"</pre>
+
+<div class="callout warn">
+  <strong>Caution</strong>
+  <code>git restore</code> discards unsaved work permanently. Only use it on files you're sure about. <code>git commit --amend</code> is safe only for commits you haven't pushed yet.
+</div>
+
+<h2>Practice to build fluency</h2>
+
+<ol>
+  <li>Make 3 separate changes to <code>hello.txt</code>, committing each one</li>
+  <li>After each, run <code>git show HEAD</code> to see what you just committed</li>
+  <li>Run <code>git log --oneline --stat --patch</code> — scroll through your full history</li>
+  <li>Use <code>git diff</code> before the next commit you make — build the habit</li>
+</ol>
+
+<h2>What you just learned</h2>
+
+<ul>
+  <li><code>git diff</code> — unstaged changes</li>
+  <li><code>git diff --staged</code> — staged changes (pre-commit review)</li>
+  <li><code>git show &lt;commit&gt;</code> — inspect any commit</li>
+  <li><code>git log --stat</code> — files changed per commit</li>
+  <li><code>git log --patch</code> — full diff per commit</li>
+  <li><code>git log --graph --all</code> — visual branch tree</li>
+  <li><code>git restore</code> — discard unstaged changes</li>
+  <li><code>git commit --amend</code> — fix last commit</li>
+</ul>
+
+<h2>Further reading</h2>
+
+<p>Read <strong>Pro Git</strong> sections 2.3 (Viewing the Commit History) and 2.4 (Undoing Things):</p>
+
+<p><a href="https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History">https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History</a></p>
+
+<h2>Ask questions</h2>
+
+<p>If anything's unclear — especially the diff output format — ask me to explain any part.</p>
+
+<hr>
+
+<p><a href="../reference/0002-viewing-history.html">Reference: Viewing History</a> · <a href="0001-your-first-git-commit.html">Lesson 1</a> · <a href="../reference/0001-git-commands.html">Commands Cheat Sheet</a></p>
+
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0003: Branching — Working on Multiple Things at Once</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+
+<div class="lesson-header">
+  <div class="lesson-number">Lesson 0003</div>
+  <h1>Branching — Working on Multiple Things at Once</h1>
+  <div class="lesson-meta">~15 minutes · Mission: Career-ready Git</div>
+</div>
+
+<div class="goal">
+  <strong>Goal:</strong> Create a branch, work on it, and merge it back. This is the #1 Git skill teams use every single day.
+</div>
+
+<h2>The real-life scenario</h2>
+
+<p>Imagine you're on a team. <code>main</code> is the stable, production-ready branch that your teammates and customers rely on. You need to add a new feature — but you can't break <code>main</code> while you experiment. So you create a <strong>feature branch</strong>, do your work in isolation, then merge it back when it's ready.</p>
+
+<p>This is how every professional team works. Let's do it.</p>
+
+<h2>Step 1: See where you are</h2>
+
+<p>Check your current branches:</p>
+
+<pre class="command"><span class="prompt">$</span> git branch</pre>
+
+<p>You'll see <code>* main</code> — the asterisk means "this is your current branch." Right now there's only one.</p>
+
+<h2>Step 2: Create a feature branch</h2>
+
+<p>Let's say we're adding a "Favorite Subjects" column to the student table. We'll work on this in its own branch:</p>
+
+<pre class="command"><span class="prompt">$</span> git switch -c feature/add-subjects</pre>
+
+<p>This <strong>creates</strong> a new branch called <code>feature/add-subjects</code> and <strong>switches</strong> to it in one step.</p>
+
+<div class="callout tip">
+  <strong>Naming convention</strong>
+  Teams use branch naming patterns like <code>feature/...</code>, <code>bugfix/...</code>, <code>hotfix/...</code>. This keeps your branches organized and tells teammates what kind of work is happening.
+</div>
+
+<p>Now run <code>git branch</code> again — you'll see both branches, with <code>* feature/add-subjects</code> active.</p>
+
+<h2>Step 3: Make changes on the feature branch</h2>
+
+<p>Edit <code>hands-on/hello.txt</code> to add a "FAVORITE SUBJECT" column to the table:</p>
+
+<p>(Open the file and make it look something like this:)</p>
+
+<pre>ROLL NO             NAME OF STUDENT          FAVORITE SUBJECT
+    1.              Alice                    Mathematics
+    2.              Bob                      Science</pre>
+
+<p>Stage and commit:</p>
+
+<pre class="command"><span class="prompt">$</span> git add hands-on/hello.txt
+<span class="prompt">$</span> git commit -m "Add favorite subject column to student table"</pre>
+
+<h2>Step 4: See the branch split</h2>
+
+<p>Look at your history now:</p>
+
+<pre class="command"><span class="prompt">$</span> git log --oneline --graph --all</pre>
+
+<p>You'll see the branch <strong>diverged</strong> from main:</p>
+
+<pre class="command"><span class="output">* abc1234 (HEAD -> feature/add-subjects) Add favorite subject column to student table
+* 1b3ffc0 (main) Add second entry in students table in hands-on/hello.txt file
+* 059d1de Add student table with one entry in hands-on/hello.txt file
+...</span></pre>
+
+<p>The history split into two paths. <code>main</code> stayed at the old commit. Your feature branch moved forward. This is the branching superpower — you can experiment without affecting anyone else.</p>
+
+<h2>Step 5: Switch back and see main is untouched</h2>
+
+<pre class="command"><span class="prompt">$</span> git switch main</pre>
+
+<p>Open <code>hands-on/hello.txt</code> — it's the old version! Your feature changes are safely isolated on the <code>feature/add-subjects</code> branch. This is the point: <strong>branches are separate workspaces</strong>.</p>
+
+<h2>Step 6: Merge your feature back</h2>
+
+<p>Now merge the feature into main:</p>
+
+<pre class="command"><span class="prompt">$</span> git merge feature/add-subjects</pre>
+
+<p>This <strong>fast-forwards</strong> <code>main</code> to catch up with the feature branch (since main hasn't moved since you branched off). Your changes are now in main.</p>
+
+<pre class="command"><span class="prompt">$</span> git log --oneline --graph --all</pre>
+
+<p>The history is a straight line again — but now <code>main</code> has the new feature.</p>
+
+<h2>Step 7: Clean up</h2>
+
+<p>Delete the feature branch — it's served its purpose:</p>
+
+<pre class="command"><span class="prompt">$</span> git branch -d feature/add-subjects</pre>
+
+<p><code>git branch -d</code> only deletes if the branch has been merged. Git protects you from losing work.</p>
+
+<h2>Optional: Non-fast-forward merge</h2>
+
+<p>What if <code>main</code> had moved while you were working? Let's simulate it:</p>
+
+<pre class="command"><span class="prompt">$</span> git switch -c feature/add-roll-numbers
+<span class="prompt"># (edit: change roll numbers to be 101, 102 instead of 1, 2)
+$</span> git add -A && git commit -m "Change roll numbers to 3-digit format"
+
+<span class="prompt">$</span> git switch main
+<span class="prompt"># Make a different change on main
+# (edit: add a third student "Charlie")
+$</span> git add -A && git commit -m "Add third student Charlie"
+
+<span class="prompt"># Now merge — this will NOT fast-forward
+$</span> git merge feature/add-roll-numbers</pre>
+
+<p>Git will create a <strong>merge commit</strong> — a special commit with two parents, joining the two branches.</p>
+
+<div class="callout">
+  <strong>Career insight</strong>
+  On real teams, <code>main</code> almost always moves while you're working on a feature. Real merges create merge commits with two parents. The <code>--graph</code> flag is how you visualize this.
+</div>
+
+<h2>What you just learned</h2>
+
+<ul>
+  <li><code>git branch</code> — list branches</li>
+  <li><code>git switch -c &lt;name&gt;</code> — create and switch to a new branch</li>
+  <li><code>git switch &lt;name&gt;</code> — switch to an existing branch</li>
+  <li>Changes on one branch don't affect others</li>
+  <li><code>git merge &lt;branch&gt;</code> — bring changes from another branch into the current one</li>
+  <li><code>git branch -d &lt;name&gt;</code> — delete a merged branch</li>
+  <li>Fast-forward vs merge commits</li>
+</ul>
+
+<h2>Practice to build fluency</h2>
+
+<ol>
+  <li>Create a branch called <code>experiment</code>, make 2 commits, switch back to main — see your files revert</li>
+  <li>Switch back to <code>experiment</code>, see your files return</li>
+  <li>Merge it into main and delete it</li>
+  <li>Try <code>git log --oneline --graph --all</code> after a non-fast-forward merge — see the fork shape</li>
+</ol>
+
+<h2>Further reading</h2>
+
+<p>Read <strong>Pro Git</strong> Chapter 3.1 and 3.2 (Git Branching — Branches in a Nutshell, Basic Branching and Merging):</p>
+
+<p><a href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell</a></p>
+
+<h2>Ask questions</h2>
+
+<p>Branching is where Git clicks for most people. If any part feels fuzzy, ask me to explain it differently.</p>
+
+<hr>
+
+<p><a href="../reference/0003-branching.html">Reference: Branching Cheat Sheet</a> · <a href="0002-seeing-what-changed.html">Lesson 2</a> · <a href="../reference/0001-git-commands.html">Commands Cheat Sheet</a></p>
+
+</body>
+</html>
