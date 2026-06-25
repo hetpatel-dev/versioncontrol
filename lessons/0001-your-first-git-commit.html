@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0001: Your First Git Commit</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+</head>
+<body>
+
+<div class="lesson-header">
+  <div class="lesson-number">Lesson 0001</div>
+  <h1>Your First Git Commit</h1>
+  <div class="lesson-meta">~10 minutes · Mission: Career-ready Git</div>
+</div>
+
+<div class="goal">
+  <strong>Goal:</strong> Make your first Git commit and see it in the history. By the end, you'll understand what version control is and have a concrete record of your work.
+</div>
+
+<h2>What is version control?</h2>
+
+<p>A version control system (VCS) tracks changes to your files over time. Think of it like a <strong>save point</strong> in a video game — you can always go back to an earlier save if something goes wrong. Git is the most popular VCS used by software teams worldwide.</p>
+
+<p>Why does this matter for your career? Every company uses Git. Code review, collaboration, deployment, tracking who wrote what — it all runs through Git. It's not optional; it's the foundation.</p>
+
+<div class="callout tip">
+  <strong>Key insight</strong>
+  Git stores <em>snapshots</em> of your project, not just differences between files. Each commit is a full picture of every file at that moment.
+</div>
+
+<h2>Step 1: Confirm Git is ready</h2>
+
+<p>Open your terminal and run:</p>
+
+<pre class="command"><span class="prompt">$</span> git --version</pre>
+
+<p>You should see something like <code>git version 2.54.0.windows.1</code>. If you see this, Git is installed.</p>
+
+<h2>Step 2: Check your identity</h2>
+
+<p>Every commit is stamped with your name and email. Git needs to know who you are. Check what's already set:</p>
+
+<pre class="command"><span class="prompt">$</span> git config --global user.name
+<span class="prompt">$</span> git config --global user.email</pre>
+
+<p>If these show your name and email, you're all set. If not, configure them:</p>
+
+<pre class="command"><span class="prompt">$</span> git config --global user.name "Your Name"
+<span class="prompt">$</span> git config --global user.email "your.email@example.com"</pre>
+
+<div class="callout warn">
+  <strong>Why this matters for your career</strong>
+  Companies use this to track who changed what. Your commits will be associated with your GitHub account. Use a real email — ideally the same one you'll use for GitHub.
+</div>
+
+<h2>Step 3: Understand the three states</h2>
+
+<p>Git has three places your files can live:</p>
+
+<ol>
+  <li><strong>Working Directory</strong> — where you edit files (your regular folder)</li>
+  <li><strong>Staging Area</strong> — where you prepare files for a commit</li>
+  <li><strong>Repository (.git)</strong> — where Git permanently stores your snapshots</li>
+</ol>
+
+<p>The flow is: <strong>Work → Stage → Commit</strong>. You work in your folder, add files to staging, then commit them to the repository.</p>
+
+<p>This is the most important mental model for Git. Everything else builds on it.</p>
+
+<h2>Step 4: Make your first commit</h2>
+
+<p>This repository (<code>versioncontrol</code>) is already a Git repo. Let's make a change and commit it.</p>
+
+<p>First, check what's happening:</p>
+
+<pre class="command"><span class="prompt">$</span> git status</pre>
+
+<p>You'll see files that are "untracked" — Git sees them but isn't tracking them yet. You'll see your new <code>lessons/</code>, <code>assets/</code>, <code>reference/</code> folders and markdown files.</p>
+
+<p>Now, let's stage everything and make a commit:</p>
+
+<pre class="command"><span class="prompt">$</span> git add --all
+<span class="prompt">$</span> git commit -m "Initialize teaching workspace for Git & GitHub lessons"</pre>
+
+<div class="callout tip">
+  <strong>Anatomy of a commit</strong>
+  <code>git add --all</code> stages all changes. <code>git commit -m "message"</code> creates the snapshot with a message describing <em>what</em> you did and <em>why</em>. Good commit messages are short but descriptive — like a headline.
+</div>
+
+<h2>Step 5: View your history</h2>
+
+<p>You just made history. Literally. View it:</p>
+
+<pre class="command"><span class="prompt">$</span> git log --oneline</pre>
+
+<p>You'll see something like:</p>
+
+<pre class="command"><span class="output">abc1234 (HEAD -> master) Initialize teaching workspace for Git & GitHub lessons</span></pre>
+
+<p>The jumble of letters and numbers (<code>abc1234</code>) is your <strong>commit hash</strong> — a unique ID for this snapshot. <code>HEAD</code> means "you are here." <code>master</code> is your branch name.</p>
+
+<h2>What you just learned</h2>
+
+<ul>
+  <li>Git is a version control system that takes snapshots</li>
+  <li>The three states: working directory → staging area → repository</li>
+  <li>How to check <code>git status</code></li>
+  <li>How to stage changes with <code>git add</code></li>
+  <li>How to commit with <code>git commit</code></li>
+  <li>How to view history with <code>git log</code></li>
+</ul>
+
+<h2>Practice to build fluency</h2>
+
+<ol>
+  <li>Create a new file called <code>hello.txt</code> with any content</li>
+  <li>Run <code>git status</code> — see how Git tells you about it</li>
+  <li>Stage and commit it</li>
+  <li>Run <code>git log --oneline</code> again — see two commits now</li>
+  <li>Modify <code>hello.txt</code>, stage, and commit again</li>
+</ol>
+
+<p>Do this a few times. The goal isn't knowledge — it's <em>fluency</em>. The commands should start feeling automatic.</p>
+
+<h2>Further reading</h2>
+
+<p>Read <strong>Pro Git</strong>, Chapter 1 (Getting Started) and sections 2.1–2.3 (Recording Changes). It's free and the best resource on Git:</p>
+
+<p><a href="https://git-scm.com/book/en/v2">https://git-scm.com/book/en/v2</a></p>
+
+<h2>Ask questions</h2>
+
+<p>If anything was unclear, ask me about it. Git can feel strange at first — that's normal. Every confused moment is a learning opportunity.</p>
+
+<hr>
+
+<p><a href="../reference/0001-git-commands.html">Reference: Git Commands Cheat Sheet</a> · <a href="../MISSION.md">Mission</a></p>
+
+</body>
+</html>

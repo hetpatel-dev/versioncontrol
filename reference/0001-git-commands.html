@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Commands — Quick Reference</title>
+  <link rel="stylesheet" href="../assets/lesson.css">
+  <style>
+    table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; font-size: 0.9rem; }
+    th, td { text-align: left; padding: 0.5rem 0.8rem; border-bottom: 1px solid var(--border); }
+    th { background: var(--accent-light); font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+    code { white-space: nowrap; }
+    .usage { margin: 0; }
+  </style>
+</head>
+<body>
+
+<h1>Git Commands — Quick Reference</h1>
+<p>Essential Git commands for daily use. <code>[brackets]</code> mean replace with your value.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>What it does</th>
+      <th>Example</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>git init</code></td>
+      <td>Create a new Git repo in current folder</td>
+      <td><code>git init</code></td>
+    </tr>
+    <tr>
+      <td><code>git status</code></td>
+      <td>Show what's changed and what's staged</td>
+      <td><code>git status</code></td>
+    </tr>
+    <tr>
+      <td><code>git add &lt;file&gt;</code></td>
+      <td>Stage a file for commit</td>
+      <td><code>git add index.html</code></td>
+    </tr>
+    <tr>
+      <td><code>git add --all</code></td>
+      <td>Stage all changes (new, modified, deleted)</td>
+      <td><code>git add --all</code> or <code>git add -A</code></td>
+    </tr>
+    <tr>
+      <td><code>git commit -m "msg"</code></td>
+      <td>Create a snapshot with a message</td>
+      <td><code>git commit -m "Fix login bug"</code></td>
+    </tr>
+    <tr>
+      <td><code>git log</code></td>
+      <td>View commit history</td>
+      <td><code>git log --oneline</code></td>
+    </tr>
+    <tr>
+      <td><code>git diff</code></td>
+      <td>See unstaged changes (line by line)</td>
+      <td><code>git diff</code></td>
+    </tr>
+    <tr>
+      <td><code>git diff --staged</code></td>
+      <td>See staged (but not yet committed) changes</td>
+      <td><code>git diff --staged</code></td>
+    </tr>
+    <tr>
+      <td><code>git config --global user.name</code></td>
+      <td>Set your name for commits</td>
+      <td><code>git config --global user.name "Jane Doe"</code></td>
+    </tr>
+    <tr>
+      <td><code>git config --global user.email</code></td>
+      <td>Set your email for commits</td>
+      <td><code>git config --global user.email "jane@example.com"</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The Three States</h2>
+
+<pre>
+  Working Directory    →    Staging Area    →    Repository (.git)
+  (edit files)              (git add)             (git commit)
+</pre>
+
+<h2>Pro tip</h2>
+
+<p>Use <code>git log --oneline --graph --all</code> for a visual tree of branches. We'll get to branches in a later lesson.</p>
+
+<p><a href="../lessons/0001-your-first-git-commit.html">Back to Lesson 1</a></p>
+
+</body>
+</html>

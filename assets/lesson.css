@@ -1,0 +1,150 @@
+/* ── Tufte-inspired lesson stylesheet ── */
+/* Shared across all lessons in this workspace */
+
+:root {
+  --text: #1a1a1a;
+  --background: #fafaf8;
+  --accent: #2d5a8e;
+  --accent-light: #e8f0f8;
+  --code-bg: #f2f2f0;
+  --border: #d4d4d2;
+  --sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas, monospace;
+  --measure: 65ch;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--background);
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 6rem;
+  font-size: 1rem;
+}
+
+/* Typography */
+h1 { font-size: 2rem; font-weight: 700; margin: 2.5rem 0 0.5rem; line-height: 1.2; }
+h2 { font-size: 1.35rem; font-weight: 600; margin: 2rem 0 0.4rem; line-height: 1.3; }
+h3 { font-size: 1.1rem; font-weight: 600; margin: 1.5rem 0 0.3rem; }
+
+p, li { margin-bottom: 0.7rem; }
+
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: #1a3a5e; }
+
+/* Code */
+code, pre {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  background: var(--code-bg);
+  border-radius: 4px;
+}
+
+code { padding: 0.1em 0.3em; }
+
+pre {
+  padding: 1rem 1.2rem;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin: 1rem 0;
+  border-left: 3px solid var(--accent);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+pre code { background: none; padding: 0; }
+
+/* Command blocks — things the user should type */
+.command {
+  background: #1a1a2e;
+  color: #e0e0e0;
+  border-left: 3px solid #4caf50;
+}
+
+.command .prompt { color: #888; user-select: none; }
+
+.command .output { color: #aaa; }
+
+/* Callout boxes */
+.callout {
+  padding: 0.8rem 1rem;
+  margin: 1.2rem 0;
+  border-radius: 4px;
+  border-left: 4px solid var(--accent);
+  background: var(--accent-light);
+}
+
+.callout.warn { border-color: #d4a017; background: #fef9e7; }
+.callout.tip { border-color: #4caf50; background: #e8f5e9; }
+
+.callout strong:first-child { display: block; margin-bottom: 0.3rem; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; }
+
+/* Lists */
+ul, ol { padding-left: 1.5rem; margin: 0.5rem 0; }
+
+li { margin-bottom: 0.3rem; }
+
+/* Horizontal ruler */
+hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+/* Lesson header */
+.lesson-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--accent);
+}
+
+.lesson-number {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  margin-bottom: 0.2rem;
+}
+
+.lesson-header h1 { margin-top: 0; }
+
+.lesson-meta {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
+/* Goal box */
+.goal {
+  background: #f0f4f8;
+  border-radius: 6px;
+  padding: 1rem 1.2rem;
+  margin: 1.2rem 0;
+}
+
+.goal strong { color: var(--accent); }
+
+/* Keyboard keys */
+kbd {
+  font-family: var(--sans);
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  background: #fff;
+  font-size: 0.85em;
+  box-shadow: 0 1px 0 var(--border);
+}
+
+/* Print */
+@media print {
+  body { font-size: 11pt; padding: 0.5in; }
+  pre { break-inside: avoid; }
+  .callout { break-inside: avoid; }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body { padding: 1rem 1rem 4rem; font-size: 0.95rem; }
+  h1 { font-size: 1.6rem; }
+  pre { font-size: 0.8rem; padding: 0.8rem; }
+}
