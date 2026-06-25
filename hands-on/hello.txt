@@ -3,7 +3,7 @@ After that I will  be learning Github!!
 
 It's a good habit to wake up early and do some exercise.
 
-ROLL NO             NAME OF STUDENT             FAVORITE SUBJECT             
-   101.             Alice                       Science
-   102.             Bob                         Mathematics
-   103.             Charlie                     Physics
+ROLL NO             STUDENT F-NAME              STUDENT L-NAME              FAVORITE SUBJECT             
+   101.             Alice                       Brown                       Science
+   102.             Bob                         Max                         Mathematics
+   103.             Charlie                     Goldberg                    Physics
