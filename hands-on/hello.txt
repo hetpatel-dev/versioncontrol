@@ -2,3 +2,6 @@ Hello, I am learning Git!!!
 After that I will  be learning Github!!
 
 It's a good habit to wake up early and do some exercise.
+
+ROLL NO             NAME OF STUDENT
+    1.              Alice
