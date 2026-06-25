@@ -8,3 +8,4 @@ ROLL NO             STUDENT F-NAME              STUDENT L-NAME              FAVO
    102.             Bob                         Max                         Mathematics
    103.             Charlie                     Goldberg                    Physics
    104.             Pushpa                      Sharma                      Economics
+   105.             Arijit                      Singh                       Singing
