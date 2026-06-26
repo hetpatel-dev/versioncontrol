@@ -3,9 +3,9 @@ After that I will  be learning Github!!
 
 It's a good habit to wake up early and do some exercise.
 
-ROLL NO             STUDENT F-NAME              STUDENT L-NAME              SUBJECT                       CITY                     EMAIL
-   101.             Alice                       Brown                       Science                       New York                 alice@mail.com
-   102.             Bob                         Max                         Mathematics                   Paris                    box@mail.com
-   103.             Charlie                     Goldberg                    Physics                       Rome                     charlie@mail.com
-   104.             Pushpa                      Sharma                      Economics                     Mumbai                   pushpa@mail.com
-   105.             Arijit                      Singh                       Singing                       Delhi                    arijit@mail.com
+ROLL NO             STUDENT F-NAME              STUDENT L-NAME              SUBJECT                       GRADE              CITY                     EMAIL
+   101.             Alice                       Brown                       Science                       A                  New York                 alice@mail.com
+   102.             Bob                         Max                         Mathematics                   A                  Paris                    box@mail.com
+   103.             Charlie                     Goldberg                    Physics                       A                  Rome                     charlie@mail.com
+   104.             Pushpa                      Sharma                      Economics                     A                  Mumbai                   pushpa@mail.com
+   105.             Arijit                      Singh                       Singing                       A                  Delhi                    arijit@mail.com
