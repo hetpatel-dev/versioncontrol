@@ -3,8 +3,8 @@ After that I will  be learning Github!!
 
 It's a good habit to wake up early and do some exercise.
 
-ROLL NO             STUDENT F-NAME              STUDENT L-NAME              FAVORITE SUBJECT              CITY             
-   101.             Alice                       Brown                       Science                       New York
+ROLL NO             STUDENT F-NAME              STUDENT L-NAME              FAVORITE SUBJECT              CITY                     EMAIL
+   101.             Alice                       Brown                       Science                       New York                 
    102.             Bob                         Max                         Mathematics                   Paris
    103.             Charlie                     Goldberg                    Physics                       Rome
    104.             Pushpa                      Sharma                      Economics                     Mumbai
