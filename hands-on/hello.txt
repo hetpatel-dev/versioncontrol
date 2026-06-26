@@ -4,8 +4,8 @@ After that I will  be learning Github!!
 It's a good habit to wake up early and do some exercise.
 
 ROLL NO             STUDENT F-NAME              STUDENT L-NAME              SUBJECT                       GRADE              CITY                     EMAIL                         Phone
-   101.             Alice                       Brown                       Science                       A                  New York                 alice@mail.com                +91-2839648274
-   102.             Bob                         Max                         Mathematics                   A                  Paris                    box@mail.com                  +91-7837048349
-   103.             Charlie                     Goldberg                    Physics                       A                  Rome                     charlie@mail.com              +91-4659039475
-   104.             Pushpa                      Sharma                      Economics                     A                  Mumbai                   pushpa@mail.com               +91-4648473937
-   105.             Arijit                      Singh                       Singing                       A                  Delhi                    arijit@mail.com               +91-5424795349
+   101.             Alice                       Brown                       Science                       A                  New York                 alice@mail.com                +91 28396 48274
+   102.             Bob                         Max                         Mathematics                   A                  Paris                    box@mail.com                  +91 78370 48349
+   103.             Charlie                     Goldberg                    Physics                       A                  Rome                     charlie@mail.com              +91 46590 39475
+   104.             Pushpa                      Sharma                      Economics                     A                  Mumbai                   pushpa@mail.com               +91 46484 73937
+   105.             Arijit                      Singh                       Singing                       A                  Delhi                    arijit@mail.com               +91 54247 95349
