@@ -5,7 +5,7 @@ It's a good habit to wake up early and do some exercise.
 
 ROLL NO             STUDENT F-NAME              STUDENT L-NAME              FAVORITE SUBJECT              CITY                     EMAIL
    101.             Alice                       Brown                       Science                       New York                 alice@mail.com
-   102.             Bob                         Max                         Mathematics                   Paris
-   103.             Charlie                     Goldberg                    Physics                       Rome
-   104.             Pushpa                      Sharma                      Economics                     Mumbai
-   105.             Arijit                      Singh                       Singing                       Delhi
+   102.             Bob                         Max                         Mathematics                   Paris                    box@mail.com
+   103.             Charlie                     Goldberg                    Physics                       Rome                     charlie@mail.com
+   104.             Pushpa                      Sharma                      Economics                     Mumbai                   pushpa@mail.com
+   105.             Arijit                      Singh                       Singing                       Delhi                    arijit@mail.com
